@@ -6,8 +6,8 @@
 #Parametros: json y headers
 '''
 
-import configuration
 import requests
+import configuration
 import data
 
 
@@ -34,10 +34,8 @@ def get_atk_from_body():
 
 
 def post_new_kit(auth_token, kit_info): # Funcion para la creacion del kit
-    headers_with_Authorization = { # Llave con mi header y mi auhtoken
-        "Authorization": f"Bearer {auth_token}",
-        "Content-Type": "application/json"
-    }
+    headers_with_Authorization = data.headers.copy() #copiamos de data los headers
+    headers_with_Authorization ["Authorization"] = f"Bearer {auth_token}" #
     return requests.post(configuration.URL_SERVICE + configuration.KITS_PATH,
                 json=kit_info,
                   headers=headers_with_Authorization,) # Llamamos al servidor con la URL, y el call kit_path
