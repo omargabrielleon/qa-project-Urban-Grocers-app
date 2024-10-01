@@ -54,5 +54,3 @@ Kit_body_8 =  {
 Kit_body_9 =  {
         "name": 123
 }
-
-
